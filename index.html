@@ -7,6 +7,7 @@
         <link href="http://fonts.googleapis.com/css?family=Roboto:400,100" rel="stylesheet">
         <link rel="stylesheet" href="css/grid.css">
         <link rel="stylesheet" href="css/main.css">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
     </head>
 
     <body>
@@ -108,43 +109,46 @@
                   <!-- Work 1 -->
                   <section class="col-4 center-text work">
                     <div class="each-work">
-                        <img src="./images/light-bulb_on.png" alt="work image 1" class="left">
+                        <img src="./images/light-bulb_on.png" alt="work image 1" id="left">
                     </div>
 
                     <br>
 
-                    <div>
-                        <!-- javascript로 버튼 구현 -->
-                        <img src="./images/on.png" class="button">
-                    </div>
+                    <label class="switch">
+                      <input type="checkbox" value="off">
+                      <span class="slider round"></span>
+                    </label>
+
                   </section>
         
                   <!-- Work 2 -->
                   <section class="col-4 center-text work">
                     <div class="each-work">
-                        <img src="./images/watering-plants_on.png" alt="work image 2">
+                        <img src="./images/watering-plants_on.png" alt="work image 2" id="mid">
                     </div>
 
                     <br>
 
-                    <div>
-                        <!-- javascript로 버튼 구현 -->
-                        <img src="./images/on.png" class="button">
-                    </div>
+                    <label class="switch">
+                      <input type="checkbox" value="off">
+                      <span class="slider round"></span>
+                    </label>
+
                   </section>
         
                   <!-- Work 3 -->
                   <section class="col-4 center-text work">
                     <div class="each-work">
-                        <img src="./images/fan_off.png" alt="work image 3" class="right">
+                        <img src="./images/fan_off.png" alt="work image 3" id="right">
                     </div>
 
                     <br>
 
-                    <div>
-                        <!-- javascript로 버튼 구현 -->
-                        <img src="./images/on.png" class="button">
-                    </div>
+                    <label class="switch">
+                      <input type="checkbox" value="off">
+                      <span class="slider round"></span>
+                    </label>
+                    
                   </section>
                   
                 </div>
@@ -160,5 +164,20 @@
 
 
         </div>
+
+        <script>
+          var check = $("input[type='checkbox']");
+          check.click(function(){
+            if (check.value==="on"){
+              check.value="off"
+              document.getElementById("right").src="./images/fan_off.png";
+            }
+            else{
+              check.value="on"
+              document.getElementById("right").src="./images/fan_on.png";
+            }
+          console.log(check.value);
+          });
+        </script>
     </body>
 </html>
