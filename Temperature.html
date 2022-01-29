@@ -1,46 +1,38 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>너의 식물은</title>
+        
+        <title>Plant Status</title>
         <style>
-            section {
-                display: grid;
-                gap: 20px;
-                grid-template-columns: repeat(4, 1fr);
-            }
-            .container{
-              height:25vh;
-              width: 25vw;
-            }
             iframe { 
              width : 100%;
              height: 100%; 
             }
             
         </style>
+        <link href="http://fonts.googleapis.com/css?family=Roboto:400,100" rel="stylesheet">
+        <link rel="stylesheet" href="css/grid.css">
+        <link rel="stylesheet" href="css/main.css">
     </head>
+
     <body>
-        <h1>너의 식물은</h1>
+    <div class="container">
+
+        <!-- header -->
+        <header class="row">
+            <div class="col-6 profile-title">
+                <h1 class="name-title">너의 식물은</h1>
+                <h4 class="name-title">SmartFarm</h4>
+            </div>
+        </header>
+
+        <hr>
+
         <form action="/report" method="get">
             <!--<input placeholder=''required name="word" />-->
             <button>식물상태 갱신하기</button>
         </form>
-        <h3>Bit : 0 Lights : 855
-
-</h3>
-
-        <!--
-    <a href="/export?word=">Export to Csv</a>
-    <section>
-      <h4>Title</h4>   
-      <h4>Company</h4>
-      <h4>Location</h4>
-      <h4>Link</h4>
-      
-    </section>
--->
-    
-    <div class="container">
+        <h4>Bit : 0 Lights : 855</h4>
         
         <iframe
             id="window_iframe_9369394"
