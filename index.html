@@ -200,15 +200,19 @@
 
           // Watering Switch
           $('input:checkbox[id="watering_button"]').click(function(){
-            document.getElementById("watering_button").checked = true;
-            document.getElementById("watering_image").src="./images/watering-plants_on.png";
-            window.open('http://125.176.2.175/PUMP=ON', 'windowPop', 'width=400, height=600, left=400, top=400, resizable = yes');
+            setTimeout(
+              function(){
+                document.getElementById("watering_button").checked = true;
+                document.getElementById("watering_image").src="./images/watering-plants_on.png";
+                window.open('http://125.176.2.175/PUMP=ON', 'windowPop', 'width=400, height=600, left=400, top=400, resizable = yes');
+              }, 5000);
             setTimeout(
               function(){
                 document.getElementById("watering_button").checked = false;
                 document.getElementById("watering_image").src="./images/watering-plants_off.png";
+                window.open('http://125.176.2.175/PUMP=OFF', 'windowPop', 'width=400, height=600, left=400, top=400, resizable = yes');
               }, 5000);
-            window.open('http://125.176.2.175/PUMP=OFF', 'windowPop', 'width=400, height=600, left=400, top=400, resizable = yes');
+            
                       
           });
 
