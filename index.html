@@ -170,11 +170,14 @@
           $('input:checkbox[id="led_button"]').click(function(){
             if (document.getElementById("led_button").checked == true){
               document.getElementById("led_button").checked = true;
-              document.getElementById("led_image").src="./images/light-bulb_on.png"; 
+              document.getElementById("led_image").src="./images/light-bulb_on.png";
+              window.open('http://125.176.2.175/LED=ON');
             }
             else{
               document.getElementById("led_button").checked = false;
-              document.getElementById("led_image").src="./images/light-bulb_off.png";              
+              document.getElementById("led_image").src="./images/light-bulb_off.png";
+              window.open('http://125.176.2.175/LED=OFF');
+                            
             }
           });
 
@@ -182,10 +185,12 @@
           $('input:checkbox[id="watering_button"]').click(function(){
             document.getElementById("watering_button").checked = true;
             document.getElementById("watering_image").src="./images/watering-plants_on.png";
+            window.open('http://125.176.2.175/PUMP=ON');
             setTimeout(
               function(){
                 document.getElementById("watering_button").checked = false;
-                document.getElementById("watering_image").src="./images/watering-plants_off.png";    
+                document.getElementById("watering_image").src="./images/watering-plants_off.png";
+                    
               }, 5000);
                       
           });
@@ -194,11 +199,13 @@
           $('input:checkbox[id="fan_button"]').click(function(){
             if (document.getElementById("fan_button").checked == true){
               document.getElementById("fan_button").checked = true;
-              document.getElementById("right").src="./images/fan_on.png"; 
+              document.getElementById("right").src="./images/fan_on.png";
+              window.open('http://125.176.2.175/FAN=ON');
             }
             else{
               document.getElementById("fan_button").checked = false;
-              document.getElementById("right").src="./images/fan_off.png";              
+              document.getElementById("right").src="./images/fan_off.png";
+              window.open('http://125.176.2.175/FAN=OFF');         
             }
           });
 
