@@ -29,65 +29,50 @@
                 <div class="col-12 feature-title">
                   <h2>Status</h2>
                 </div>
-        
+
                 <!-- Each Section -->
                 <div class="row">
         
                   <!-- Work 1 -->
                   <section class="col-4 center-text work">
                     <div class="each-work">
-                      <a href="Temperature.html">
                         <img src="./images/benchmarking.png" alt="work image 1" class="left">
-                        <div class="work-overlay">
-                          <h2>온도</h2>
-                          <p>Temperature</p>
-                        </div>
-                      </a>
                     </div>
                 
                     <div class="work-detail">
-                        <h3 class="work-title">온도</h3>
-                        <a href="Temperature.html" class="work-repo">Temperature</a>
+                        <h3 class="work-title">Temperature</h3>
                     </div>
                   </section>
         
                   <!-- Work 2 -->
                   <section class="col-4 center-text work">
                     <div class="each-work">
-                      <a href="2.html">
                         <img src="./images/benchmarking.png" alt="work image 2">
-                        <div class="work-overlay">
-                          <h2>습도</h2>
-                          <p>Atmospheric Humidity</p>
-                        </div>
-                      </a>
                     </div>
 
                     <div class="work-detail">
-                        <h3 class="work-title">습도</h3>
-                        <a href="2.html" class="work-repo">Atmospheric Humidity</a>
+                        <h3 class="work-title">Humidity</h3>
                     </div>
                   </section>
         
                   <!-- Work 3 -->
                   <section class="col-4 center-text work">
                     <div class="each-work">
-                      <a href="3.html">
                         <img src="./images/benchmarking.png" alt="work image 3" class="right">
-                        <div class="work-overlay">
-                          <h2>토양습도</h2>
-                          <p>Soil Moisture</p>
-                        </div>
-                      </a>
                     </div>
 
                     <div class="work-detail">
-                        <h3 class="work-title">토양습도</h3>
-                        <a href="3.html" class="work-repo">Soil Moisture</a>
+                        <h3 class="work-title">Moisture</h3>
                     </div>
                   </section>
 
                 </div>
+
+                <!--Detail-->
+                <div class="row">
+                  <a href="Temperature.html">Show Detail</a>
+                </div>
+
               </div>
 
 
@@ -102,10 +87,26 @@
                 <div class="col-12 feature-title">
                   <h2>Control</h2>
                 </div>
+                
+                <!--Auto/Manual-->
+                <div class="row" style="text-align: center">
+                  <section class="col-4 center-text work">
+                  <div class="each-work">
+                    <img src="./images/auto_on.png" alt="work image 1" id="mode_image">
+                </div>
+
+                <br>
+
+                <label class="switch">
+                  <input type="checkbox" id="auto_button" checked="checked">
+                  <span class="slider round"></span>
+                </label>
+              </section>
+
+                </div>
         
                 <!-- Each Section -->
-                <div class="row">
-        
+                <div class="row" id="mode" style="display: none;">
                   <!-- Work 1 -->
                   <section class="col-4 center-text work">
                     <div class="each-work">
@@ -166,17 +167,33 @@
         </div>
 
         <script>
+          // Auto/Manual Switch
+          $('input:checkbox[id="auto_button"]').click(function(){
+            if (document.getElementById("auto_button").checked == true){
+              document.getElementById("auto_button").checked = true;
+              document.getElementById("mode_image").src="./images/auto_on.png";
+              document.getElementById("mode").style.display= "none";
+              window.open('http://125.176.2.175/AUTO=ON', 'windowPop', 'width=400, height=600, left=400, top=400, resizable = yes');
+            }
+            else{
+              document.getElementById("auto_button").checked = false;
+              document.getElementById("mode_image").src="./images/auto_off.png";
+              document.getElementById("mode").style.display="";
+              window.open('http://125.176.2.175/AUTO=OFF', 'windowPop', 'width=400, height=600, left=400, top=400, resizable = yes');      
+            }
+          });
+
           // LED Switch
           $('input:checkbox[id="led_button"]').click(function(){
             if (document.getElementById("led_button").checked == true){
               document.getElementById("led_button").checked = true;
               document.getElementById("led_image").src="./images/light-bulb_on.png";
-              window.open('http://125.176.2.175/LED=ON', 'windowPop', 'width=400, height=600, left=400, top=400, resizable = yes')
+              window.open('http://125.176.2.175/LED=ON', 'windowPop', 'width=400, height=600, left=400, top=400, resizable = yes');
             }
             else{
               document.getElementById("led_button").checked = false;
               document.getElementById("led_image").src="./images/light-bulb_off.png";
-              window.open('http://125.176.2.175/LED=OFF');
+              window.open('http://125.176.2.175/LED=OFF', 'windowPop', 'width=400, height=600, left=400, top=400, resizable = yes');
                             
             }
           });
@@ -185,12 +202,12 @@
           $('input:checkbox[id="watering_button"]').click(function(){
             document.getElementById("watering_button").checked = true;
             document.getElementById("watering_image").src="./images/watering-plants_on.png";
-            window.open('http://125.176.2.175/PUMP=ON');
+            window.open('http://125.176.2.175/PUMP=ON', 'windowPop', 'width=400, height=600, left=400, top=400, resizable = yes');
             setTimeout(
               function(){
                 document.getElementById("watering_button").checked = false;
                 document.getElementById("watering_image").src="./images/watering-plants_off.png";
-                    
+                window.open('http://125.176.2.175/PUMP=OFF', 'windowPop', 'width=400, height=600, left=400, top=400, resizable = yes');
               }, 5000);
                       
           });
@@ -200,12 +217,12 @@
             if (document.getElementById("fan_button").checked == true){
               document.getElementById("fan_button").checked = true;
               document.getElementById("right").src="./images/fan_on.png";
-              window.open('http://125.176.2.175/FAN=ON');
+              window.open('http://125.176.2.175/FAN=ON', 'windowPop', 'width=400, height=600, left=400, top=400, resizable = yes');
             }
             else{
               document.getElementById("fan_button").checked = false;
               document.getElementById("right").src="./images/fan_off.png";
-              window.open('http://125.176.2.175/FAN=OFF');         
+              window.open('http://125.176.2.175/FAN=OFF', 'windowPop', 'width=400, height=600, left=400, top=400, resizable = yes');       
             }
           });
 
