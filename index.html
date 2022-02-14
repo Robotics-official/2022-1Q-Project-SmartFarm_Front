@@ -94,16 +94,16 @@
       <!--Auto/Manual-->
       <div class="row" style="display: flex; justify-content: center; text-align: center;">
         <div class="column">
-            <img src="./images/auto_on.png" alt="work image 1" id="mode_image">
+            <img src="./images/auto_on.png" alt="work image 0" id="mode_image">
 
-          <br><br>
+          <br><br><br>
 
-            <input type="button" id="auto_button" value="AUTO">
+            <input class="ui button" type="button" id="auto_button" value="AUTO">
         </div>
       </div>
 
       <!-- Each Section -->
-      <br>
+      <br><br><br>
       <div class="ui three column grid" id="mode" style="display: none; text-align: center;">
         <!-- LED -->
         <div class="column">
@@ -149,13 +149,10 @@
     </div>
 
     <!-- Footer -->
+    <br><br><br>
     <footer>
       <p>&copy; 2022 Robotics </p>
     </footer>
-
-
-
-
 
   </div>
 
@@ -166,13 +163,13 @@
         document.getElementById("auto_button").value = 'MANUAL';
         document.getElementById("mode_image").src = "./images/auto_off.png";
         document.getElementById("mode").style.display = "";
-        window.open('test.html', 'windowPop', 'width=350, height=600, left=400, top=400');
+        window.open('http://125.176.2.175/AUTO=OFF', 'windowPop', 'width=350, height=600, left=400, top=400');
       }
       else {
         document.getElementById("auto_button").value = 'AUTO';
         document.getElementById("mode_image").src = "./images/auto_on.png";
         document.getElementById("mode").style.display = "none";
-        window.open('test.html', 'windowPop', 'width=350, height=600, left=400, top=400');        
+        window.open('http://125.176.2.175/AUTO=ON', 'windowPop', 'width=350, height=600, left=400, top=400');        
       }
     });
 
