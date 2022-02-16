@@ -94,11 +94,11 @@
       <!--Auto/Manual-->
       <div class="row" style="display: flex; justify-content: center; text-align: center;">
         <div class="column">
-            <img src="./images/auto_on.png" alt="work image 0" id="mode_image">
+          <img src="./images/auto_on.png" alt="work image 0" id="mode_image">
 
           <br><br><br>
 
-            <input class="ui button" type="button" id="auto_button" value="AUTO">
+          <input class="ui button" type="button" id="auto_button" value="AUTO">
         </div>
       </div>
 
@@ -107,7 +107,7 @@
       <div class="ui three column grid" id="mode" style="display: none; text-align: center;">
         <!-- LED -->
         <div class="column">
-          <img src="./images/light-bulb_on.png" alt="work image 1" id="led_image">
+          <img src="./images/led_on.png" alt="work image 1" id="led_image">
 
           <br><br>
 
@@ -121,12 +121,12 @@
 
         <!-- PUMP -->
         <div class="column">
-          <img src="./images/watering-plants_off.png" alt="work image 2" id="watering_image">
+          <img src="./images/pump_off.png" alt="work image 2" id="pump_image">
 
           <br><br>
 
           <label class="switch">
-            <input type="checkbox" id="watering_button">
+            <input type="checkbox" id="pump_button">
             <span class="slider round"></span>
           </label>
         </div>
@@ -163,13 +163,13 @@
         document.getElementById("auto_button").value = 'MANUAL';
         document.getElementById("mode_image").src = "./images/auto_off.png";
         document.getElementById("mode").style.display = "";
-        window.open('http://125.176.2.175/AUTO=OFF', 'windowPop', 'width=350, height=600, left=400, top=400');
+        window.open('http://220.149.85.155:8002/AUTO=OFF', 'windowPop', 'width=350, height=600, left=400, top=400');
       }
       else {
         document.getElementById("auto_button").value = 'AUTO';
         document.getElementById("mode_image").src = "./images/auto_on.png";
         document.getElementById("mode").style.display = "none";
-        window.open('test.html', 'windowPop', 'width=350, height=600, left=400, top=400');        
+        window.open('http://220.149.85.155:8002/AUTO=ON', 'windowPop', 'width=350, height=600, left=400, top=400');
       }
     });
 
@@ -177,32 +177,31 @@
     $('input:checkbox[id="led_button"]').click(function () {
       if (document.getElementById("led_button").checked == true) {
         document.getElementById("led_button").checked = true;
-        document.getElementById("led_image").src = "./images/light-bulb_on.png";
-        window.open('http://125.176.2.175/LED=ON', 'windowPop', 'width=350, height=600, left=400, top=400');
+        document.getElementById("led_image").src = "./images/led_on.png";
+        window.open('http://220.149.85.155:8002/LED=ON', 'windowPop', 'width=350, height=600, left=400, top=400');
       }
       else {
         document.getElementById("led_button").checked = false;
-        document.getElementById("led_image").src = "./images/light-bulb_off.png";
-        window.open('http://125.176.2.175/LED=OFF', 'windowPop', 'width=350, height=600, left=400, top=400');
+        document.getElementById("led_image").src = "./images/led_off.png";
+        window.open('http://220.149.85.155:8002/LED=OFF', 'windowPop', 'width=350, height=600, left=400, top=400');
 
       }
     });
 
     // Watering Switch
-    $('input:checkbox[id="watering_button"]').click(function () {
-      document.getElementById("watering_button").checked = true;
-      document.getElementById("watering_image").src = "./images/watering-plants_on.png";
-      window.open('http://125.176.2.175/PUMP=ON', 'windowPop', 'width=350, height=600, left=400, top=400');
+    $('input:checkbox[id="pump_button"]').click(function () {
+      console.log("hello")
+      document.getElementById("pump_button").checked = true;
+      document.getElementById("pump_image").src = "./images/pump_on.png";
+      console.log(document.getElementById("led_image"))
+      window.open('http://220.149.85.155:8002/PUMP=ON', 'windowPop', 'width=350, height=600, left=400, top=400');
       setTimeout(function () { }, 5000);
       setTimeout(
         function () {
-          document.getElementById("watering_button").checked = false;
-          document.getElementById("watering_image").src = "./images/watering-plants_off.png";
-          window.open('http://125.176.2.175/PUMP=OFF', 'windowPop', 'width=350, height=600, left=400, top=400');
+          document.getElementById("pump_button").checked = false;
+          document.getElementById("pump_image").src = "./images/pump_off.png";
+          window.open('http://220.149.85.155:8002/PUMP=OFF', 'windowPop', 'width=350, height=600, left=400, top=400');
         }, 5000);
-      
-
-
     });
 
     // Fan Switch
@@ -210,12 +209,12 @@
       if (document.getElementById("fan_button").checked == true) {
         document.getElementById("fan_button").checked = true;
         document.getElementById("right").src = "./images/fan_on.png";
-        window.open('http://125.176.2.175/FAN=ON', 'windowPop', 'width=350, height=600, left=400, top=400');
+        window.open('http://220.149.85.155:8002/FAN=ON', 'windowPop', 'width=350, height=600, left=400, top=400');
       }
       else {
         document.getElementById("fan_button").checked = false;
         document.getElementById("right").src = "./images/fan_off.png";
-        window.open('http://125.176.2.175/FAN=OFF', 'windowPop', 'width=350, height=600, left=400, top=400');
+        window.open('http://220.149.85.155:8002/FAN=OFF', 'windowPop', 'width=350, height=600, left=400, top=400');
       }
     });
 
