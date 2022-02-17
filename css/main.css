@@ -81,14 +81,16 @@ header{
   font-family: "Roboto", sans-serif;
 }
 
-h1,
-h4
+h1
 {
   color:#2ab675;
 }
 
 h2{
-  color:#7addaf;
+  color:#91ddac;
+}
+h3{
+  color:#afccb8;
 }
 
 /***** GENERAL ******/
@@ -117,7 +119,7 @@ footer {
   height: 20px;
   padding-top: 10px;
   text-align: center;
-  color: #879;
+  color: #35a06e;
 }
 
 @media screen and (min-width: 620px) {
