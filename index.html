@@ -37,9 +37,9 @@
       <div style="display: flex; justify-content: center; text-align: center" class="ui link cards">
 
         <div class="card">
-          <img src="./images/meter_4.png" alt="temperature image" class="temperature">
+          <img src="./images/meter_4.png" alt="temperature image" id="temperature_image">
           <div class="content">
-            <div class="header">16도</div>
+            <div class="header" id="temperature">Ready</div>
             <div class="meta">
               <a>Temperature</a>
             </div>
@@ -47,9 +47,9 @@
         </div>
 
         <div class="card">
-          <img src="./images/meter_3.png" alt="humidity image" class="humidity">
+          <img src="./images/meter_3.png" alt="humidity image" id="humidity_image">
           <div class="content">
-            <div class="header">76%</div>
+            <div class="header" id="humidity">Ready</div>
             <div class="meta">
               <a>Humidity</a>
             </div>
@@ -57,9 +57,9 @@
         </div>
 
         <div class="card">
-          <img src="./images/meter_1.png" alt="moisture image" class="moisture">
+          <img src="./images/meter_1.png" alt="moisture image" id="moisture_image">
           <div class="content">
-            <div class="header">23%</div>
+            <div class="header" id="moisture">Ready</div>
             <div class="meta">
               <a>Moisture</a>
             </div>
@@ -160,6 +160,22 @@
   </div>
 
   <script>
+    var requestURL = 'https://api.thingspeak.com/channels/1651803/feeds.json?results=1';
+    var request = new XMLHttpRequest();
+    request.open('GET', requestURL);
+    request.responseType = 'json';
+    request.send();
+    request.onload = function() {
+      var statusdata = request.response;
+      var temperaturedata=parseInt(statusdata["feeds"][0]["field1"])
+      var humiditydata=parseInt(statusdata["feeds"][0]["field2"])
+      var moisturedata=parseInt(statusdata["feeds"][0]["field3"])
+      var moisturepdata=100-parseInt(moisturedata/1024*100)
+      $('#temperature').html(temperaturedata+" ºC");
+      $('#humidity').html(humiditydata+" %");
+      $('#moisture').html(moisturepdata+" %");
+    }
+    
     window.open('http://220.149.85.155:8002/AUTO=ON', 'windowPop', 'width=350, height=600, left=400, top=400');
     // Auto/Manual Switch
     $('input:button[id="auto_button"]').click(function () {
