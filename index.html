@@ -174,6 +174,28 @@
       $('#temperature').html(temperaturedata+" ºC");
       $('#humidity').html(humiditydata+" %");
       $('#moisture').html(moisturepdata+" %");
+      changemeter(temperaturedata,'temperature_image',[18,18],[17,19],[15,20]);
+      changemeter(humiditydata,'humidity_image',[50,50],[30,70],[20,80]);
+      changemeter(moisturedata,'moisture_image',[400,400],[375,450],[350,500]);
+    }
+    
+    function changemeter(eachdata,imgid,best,good,soso){
+      if (eachdata>=best[0] & eachdata<=best[1]){
+        console.log("best");
+        document.getElementById(imgid).src = "./images/meter_4.png";
+      }
+      else if(eachdata>=good[0] & eachdata<=good[1]){
+        console.log("good");
+        document.getElementById(imgid).src = "./images/meter_3.png";
+      }
+      else if(eachdata>=good[0] & eachdata<=good[1]){
+        console.log("soso");
+        document.getElementById(imgid).src = "./images/meter_2.png";
+      }
+      else{
+        console.log("bad");
+        document.getElementById(imgid).src = "./images/meter_1.png";
+      }
     }
     
     window.open('http://220.149.85.155:8002/AUTO=ON', 'windowPop', 'width=350, height=600, left=400, top=400');
