@@ -10,6 +10,8 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
   <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css'>
   <script src='https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js'></script>
+  <script type="text/javascript" charset=utf-8 src='js/data.js'></script>
+  <script type="text/javascript" charset=utf-8 src='js/switch.js'></script>
 </head>
 
 <body>
@@ -70,12 +72,13 @@
 
       <!--Detail-->
       <br><br>
-      
+
       <div style="display: flex; justify-content: center; text-align: center" class="row">
-        <a href="detail_status.html" class="ui right labeled icon button" style="border: 1px solid #d6d6d667; background: white; color: #a4afaa" >
+        <a href="detail_status.html" class="ui right labeled icon button"
+          style="border: 1px solid #d6d6d667; background: white; color: #a4afaa">
           Show Detail
           <i class="right arrow icon"></i>
-          
+
         </a>
       </div>
 
@@ -158,46 +161,7 @@
     </footer>
 
   </div>
-
   <script>
-    var requestURL = 'https://api.thingspeak.com/channels/1651803/feeds.json?results=1';
-    var request = new XMLHttpRequest();
-    request.open('GET', requestURL);
-    request.responseType = 'json';
-    request.send();
-    request.onload = function() {
-      var statusdata = request.response;
-      var temperaturedata=parseInt(statusdata["feeds"][0]["field1"])
-      var humiditydata=parseInt(statusdata["feeds"][0]["field2"])
-      var moisturedata=parseInt(statusdata["feeds"][0]["field3"])
-      var moisturepdata=100-parseInt(moisturedata/1024*100)
-      $('#temperature').html(temperaturedata+" ºC");
-      $('#humidity').html(humiditydata+" %");
-      $('#moisture').html(moisturepdata+" %");
-      changemeter(temperaturedata,'temperature_image',[18,20],[16,21],[14,23]);
-      changemeter(humiditydata,'humidity_image',[50,50],[40,70],[20,80]);
-      changemeter(moisturedata,'moisture_image',[300,600],[250,700],[250,900]);
-    }
-    
-    function changemeter(eachdata,imgid,best,good,soso){
-      if (eachdata>=best[0] & eachdata<=best[1]){
-        console.log("best");
-        document.getElementById(imgid).src = "./images/meter_4.png";
-      }
-      else if(eachdata>=good[0] & eachdata<=good[1]){
-        console.log("good");
-        document.getElementById(imgid).src = "./images/meter_3.png";
-      }
-      else if(eachdata>=good[0] & eachdata<=good[1]){
-        console.log("soso");
-        document.getElementById(imgid).src = "./images/meter_2.png";
-      }
-      else{
-        console.log("bad");
-        document.getElementById(imgid).src = "./images/meter_1.png";
-      }
-    }
-    
     window.open('http://220.149.85.155:8002/AUTO=ON', 'windowPop', 'width=350, height=600, left=400, top=400');
     // Auto/Manual Switch
     $('input:button[id="auto_button"]').click(function () {
@@ -259,7 +223,6 @@
         window.open('http://220.149.85.155:8002/FAN=OFF', 'windowPop', 'width=350, height=600, left=400, top=400');
       }
     });
-
   </script>
 </body>
 
