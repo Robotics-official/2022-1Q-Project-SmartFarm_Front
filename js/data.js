@@ -9,7 +9,7 @@ request.onload = function() {
   var humiditydata=parseInt(statusdata["feeds"][0]["field2"])
   var moisturedata=parseInt(statusdata["feeds"][0]["field3"])
   console.log(moisturedata)
-  var moisturepdata=parseInt(moisturedata/1024*100)
+  var moisturepdata=parseInt(100-moisturedata/1024*100)
   $('#temperature').html(temperaturedata+" °C");
   $('#humidity').html(humiditydata+" %");
   $('#moisture').html(moisturepdata+" %");
