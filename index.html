@@ -169,13 +169,13 @@
         document.getElementById("auto_button").value = 'MANUAL';
         document.getElementById("mode_image").src = "./images/auto_off.png";
         document.getElementById("mode").style.display = "";
-        window.open('http://220.149.85.155:8002/AUTO=OFF', 'windowPop', 'width=350, height=600, left=400, top=400');
+        window.open('http://220.149.85.16:8002/AUTO=OFF', 'windowPop', 'width=350, height=600, left=400, top=400');
       }
       else {
         document.getElementById("auto_button").value = 'AUTO';
         document.getElementById("mode_image").src = "./images/auto_on.png";
         document.getElementById("mode").style.display = "none";
-        window.open('http://220.149.85.155:8002/AUTO=ON', 'windowPop', 'width=350, height=600, left=400, top=400');
+        window.open('http://220.149.85.16:8002/AUTO=ON', 'windowPop', 'width=350, height=600, left=400, top=400');
       }
     });
 
@@ -184,12 +184,12 @@
       if (document.getElementById("led_button").checked == true) {
         document.getElementById("led_button").checked = true;
         document.getElementById("led_image").src = "./images/led_on.png";
-        window.open('http://220.149.85.155:8002/LED=ON', 'windowPop', 'width=350, height=600, left=400, top=400');
+        window.open('http://220.149.85.16:8002/LED=ON', 'windowPop', 'width=350, height=600, left=400, top=400');
       }
       else {
         document.getElementById("led_button").checked = false;
         document.getElementById("led_image").src = "./images/led_off.png";
-        window.open('http://220.149.85.155:8002/LED=OFF', 'windowPop', 'width=350, height=600, left=400, top=400');
+        window.open('http://220.149.85.16:8002/LED=OFF', 'windowPop', 'width=350, height=600, left=400, top=400');
 
       }
     });
@@ -200,13 +200,13 @@
       document.getElementById("pump_button").checked = true;
       document.getElementById("pump_image").src = "./images/pump_on.png";
       console.log(document.getElementById("led_image"))
-      window.open('http://220.149.85.155:8002/PUMP=ON', 'windowPop', 'width=350, height=600, left=400, top=400');
+      window.open('http://220.149.85.16:8002/PUMP=ON', 'windowPop', 'width=350, height=600, left=400, top=400');
       setTimeout(function () { }, 5000);
       setTimeout(
         function () {
           document.getElementById("pump_button").checked = false;
           document.getElementById("pump_image").src = "./images/pump_off.png";
-          window.open('http://220.149.85.155:8002/PUMP=OFF', 'windowPop', 'width=350, height=600, left=400, top=400');
+          window.open('http://220.149.85.16:8002/PUMP=OFF', 'windowPop', 'width=350, height=600, left=400, top=400');
         }, 5000);
     });
 
@@ -215,12 +215,12 @@
       if (document.getElementById("fan_button").checked == true) {
         document.getElementById("fan_button").checked = true;
         document.getElementById("fan_image").src = "./images/fan_on.png";
-        window.open('http://220.149.85.155:8002/FAN=ON', 'windowPop', 'width=350, height=600, left=400, top=400');
+        window.open('http://220.149.85.16:8002/FAN=ON', 'windowPop', 'width=350, height=600, left=400, top=400');
       }
       else {
         document.getElementById("fan_button").checked = false;
         document.getElementById("fan_image").src = "./images/fan_off.png";
-        window.open('http://220.149.85.155:8002/FAN=OFF', 'windowPop', 'width=350, height=600, left=400, top=400');
+        window.open('http://220.149.85.16:8002/FAN=OFF', 'windowPop', 'width=350, height=600, left=400, top=400');
       }
     });
   </script>
